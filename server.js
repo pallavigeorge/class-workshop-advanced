@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 
@@ -24,7 +24,7 @@ const geoSchema = new mongoose.Schema({
       type: { type: String, enum: ['Point', 'LineString', 'Polygon'], required: true },
       coordinates: { type: [Number], required: true }
     }
-  }, { collection: 'Stations' }); // My files come from the Stations folder, so enhance navigation to help find them
+  }, { collection: 'Shirley' }); // My files come from the Stations folder, so enhance navigation to help find them
   
   const GeoModel = mongoose.model('GeoCollection', geoSchema);
   
